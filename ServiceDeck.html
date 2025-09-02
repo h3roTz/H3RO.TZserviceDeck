@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H3RO.TZ - Premium SMM Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --dark-blue: #0a1128;
+            --medium-blue: #1c2b4d;
+            --light-blue: #2a3f6d;
+            --purple: #6c3bd9;
+            --light-purple: #8c68e0;
+            --gradient: linear-gradient(135deg, #2a3f6d, #6c3bd9);
+            --text-light: #f0f0f0;
+            --text-muted: #b0b0b0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--dark-blue);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: rgba(10, 17, 40, 0.95);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #4a72ff, #8c68e0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 60px 0;
+            text-align: center;
+            background: var(--gradient);
+            border-radius: 0 0 30px 30px;
+            margin-bottom: 40px;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--text-light);
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 40px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: var(--text-light);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient);
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+        
+        .platform-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            background: var(--medium-blue);
+            color: var(--text-light);
+            border: none;
+            padding: 12px 24px;
+            margin: 0 10px 10px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-btn.active {
+            background: var(--gradient);
+            box-shadow: 0 4px 12px rgba(108, 59, 217, 0.4);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .service-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .service-card {
+            background: var(--medium-blue);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+        
+        .quality-option {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .quality-option:last-child {
+            border-bottom: none;
+        }
+        
+        .quality-name {
+            font-weight: 500;
+        }
+        
+        .price {
+            color: var(--light-purple);
+            font-weight: 600;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 60px 0;
+            background: var(--medium-blue);
+            border-radius: 30px 30px 0 0;
+            margin-top: 40px;
+        }
+        
+        .contact-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            background: var(--light-blue);
+            padding: 15px 25px;
+            border-radius: 15px;
+            min-width: 250px;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            color: var(--light-purple);
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background: var(--dark-blue);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .service-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .tab-btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .contact-item {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.8rem;
+            }
+            
+            .hero {
+                padding: 40px 0;
+            }
+            
+            .section-title {
+                font-size: 1.7rem;
+            }
+            
+            .service-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">H3RO.TZ</div>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Premium SMM Services</h1>
+            <p>Boost your social media presence with our high-quality Instagram, YouTube, and TikTok services. Get real engagement that makes a difference.</p>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section class="services container">
+        <h2 class="section-title">Our Services</h2>
+        
+        <div class="platform-tabs">
+            <button class="tab-btn active" data-platform="instagram">Instagram</button>
+            <button class="tab-btn" data-platform="youtube">YouTube</button>
+            <button class="tab-btn" data-platform="tiktok">TikTok</button>
+        </div>
+        
+        <!-- Instagram Services -->
+        <div class="tab-content active" id="instagram">
+            <div class="service-cards">
+                <div class="service-card">
+                    <h3><i class="fas fa-heart"></i> Instagram Likes</h3>
+                    <div class="quality-option">
+                        <span class="quality-name">Low Quality</span>
+                        <span class="price">$2.99/1000</span>
+                    </div>
+                    <div class="quality-option">
+                        <span class="quality-name">Medium Quality</span>
+                        <span class="price">$4.99/1000</span>
+                    </div>
+                    <div class="quality-option">
+                        <span class="quality-name">High Quality</span>
+                        <span class="price">$9.99/1000</span>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <h3><i class="fas fa-eye"></i> Instagram Views</h3>
+                    <div class="quality-option">
+                        <span class="quality-name">Low Quality</span>
+                        <span class="price">$1.99/1000</span>
+                    </div>
+                    <div class="quality-option">
+                        <span class="quality-name">Medium Quality</span>
+                        <span class="price">$3.99/1000</span>
+                    </div>
+                    <div class="quality-option">
+                        <span class="quality-name">High Quality</span>
+                        <span class="price">$7.99/1000</span>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <h3><i class="fas fa-users"></i> Instagram Followers</h3>
+                    <div class="quality-option">
+                        <span class="quality-name">Low Quality</span>
+                        <span class="price">$3.99/1000</span>
+                    </div>
+                    <div class="quality-option">
+                        <span class="quality-name">Medium Quality</span>
+                        <span class="price">$6.99/1000</span>
+                    </div>
+                    <div class="quality-option">
+                        <span class="quality-name">High Quality</span>
+                        <span class="price">$12.99/1000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- YouTube Services -->
+        <div class="tab-content" id="youtube">
+            <div class="service-cards">
+                <div class="service-card">
+                    <h3><i class="fas fa-thumbs-up"></i> YouTube Likes</h3>
+                    <div class="quality-option">
+                        <span class="quality-name">Low Quality</span>
+                        <span class="price">$3.99/1000</span>
+                    </div>
+                    <div class="quality-option">
+                        <span class="quality-name">Medium Quality</span>
+                        <span class="price">$6.99/1000</span>
+                    </div>
+                    <div class="quality-option">
+                        <span class="quality-name">High Quality</span>
+                        <span class="price">$11.99/1000</span>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <h3><i class="fas fa-eye"></i> YouTube Views</h3>
+                    <div class="quality-option">
+                        <span class="quality-name">Low Quality</span>
+                        <span class="price">$2.99/1000</span>
+                    </div>
+                    <div class="quality-option">
+                        <span class="quality-name">Medium Quality</span>
+                        <span class="price">$4.99/1000</span>
+                    </div>
+                    <div class="quality-option">
+                        <span class="quality-name">High Quality</span>
+                        <span class="price">$8.99/1000</span>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <h3><i class="fas fa-users"></i> YouTube Subscribers</h3>
+                    <div class="quality-option">
+                        <span class="quality-name">Low Quality</span>
+                        <span class="price">$9.99/1000</span>
+                    </div>
+                    <div class="quality-option">
+                        <span class="quality-name">Medium Quality</span>
+                        <span class="price">$16.99/1000</span>
+                    </div>
+                    <div class="quality-option">
+                        <span class="quality-name">High Quality</span>
+                        <span class="price">$24.99/1000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- TikTok Services -->
+        <div class="tab-content" id="tiktok">
+            <div class="service-cards">
+                <div class="service-card">
+                    <h3><i class="fas fa-heart"></i> TikTok Likes</h3>
+                    <div class="quality-option">
+                        <span class="quality-name">Low Quality</span>
+                        <span class="price">$2.49/1000</span>
+                    </div>
+                    <div class="quality-option">
+                        <span class="quality-name">Medium Quality</span>
+                        <span class="price">$4.49/1000</span>
+                    </div>
+                    <div class="quality-option">
+                        <span class="quality-name">High Quality</span>
+                        <span class="price">$8.49/1000</span>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <h3><i class="fas fa-eye"></i> TikTok Views</h3>
+                    <div class="quality-option">
+                        <span class="quality-name">Low Quality</span>
+                        <span class="price">$1.49/1000</span>
+                    </div>
+                    <div class="quality-option">
+                        <span class="quality-name">Medium Quality</span>
+                        <span class="price">$2.99/1000</span>
+                    </div>
+                    <div class="quality-option">
+                        <span class="quality-name">High Quality</span>
+                        <span class="price">$5.99/1000</span>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <h3><i class="fas fa-users"></i> TikTok Followers</h3>
+                    <div class="quality-option">
+                        <span class="quality-name">Low Quality</span>
+                        <span class="price">$3.49/1000</span>
+                    </div>
+                    <div class="quality-option">
+                        <span class="quality-name">Medium Quality</span>
+                        <span class="price">$6.49/1000</span>
+                    </div>
+                    <div class="quality-option">
+                        <span class="quality-name">High Quality</span>
+                        <span class="price">$11.49/1000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="container contact-content">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <h3>Email</h3>
+                        <p>support@h3ro.tz</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-comment-alt"></i>
+                    </div>
+                    <div>
+                        <h3>Live Chat</h3>
+                        <p>Available 24/7</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-paper-plane"></i>
+                    </div>
+                    <div>
+                        <h3>Telegram</h3>
+                        <p>@h3ro_tz</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 H3RO.TZ - All Rights Reserved</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all buttons and contents
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    btn.classList.add('active');
+                    
+                    // Show corresponding content
+                    const platform = btn.getAttribute('data-platform');
+                    document.getElementById(platform).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
